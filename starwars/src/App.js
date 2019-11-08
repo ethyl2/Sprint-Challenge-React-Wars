@@ -3,7 +3,13 @@ import axios from 'axios';
 import './App.css';
 import CharacterCard from './components/CharacterCard';
 import Footer from './components/Footer';
-import { Container, Row, Button, Spinner, Jumbotron } from "reactstrap";
+import { Container, 
+          Row, 
+          Button, 
+          Spinner, 
+          Jumbotron,
+          Form, FormGroup, Label, Input
+         } from "reactstrap";
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. 
@@ -31,11 +37,22 @@ const App = () => {
     setPage(`page=${num}`);
   }
 
-  // Setting up a function to filter results based on a property of character, such as gender
+  // Filter characters shown based on a property of character, such as gender
   function filterCharacters(attribute, attributeValue) {
     const filteredCharacters = characters.filter((character) => character[attribute] === attributeValue);
     console.log(filteredCharacters);
     setCharacters(filteredCharacters);
+  }
+
+  function showCharacter(event) {
+    console.log("Name entered: " + event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log("Submitted");
+    console.log(event.target.nameInput.value);
+    filterCharacters("name", event.target.nameInput.value);
   }
 
   useEffect(() => {
@@ -66,6 +83,14 @@ const App = () => {
       <Button className="mb-3 ml-4" onClick={() => filterCharacters("gender", "female")}>Show Females Only</Button>
       <Button className="mb-3 ml-4" onClick={() => filterCharacters("eye_color", "blue")}>Show Blue-Eyed Only</Button>
       
+      <Form onSubmit={(event) => handleSubmit(event)}>
+        <FormGroup>
+          <Label for="nameInput">Show only this character:</Label>
+          <Input type="text" name="nameInput" id="nameInput" placeholder="R2-D2" onChange={(event) => showCharacter(event)}/>
+        </FormGroup>
+        <Button>Submit</Button>
+      </Form>
+
       <Container>
         <Row>
         {characters.map((character, index) => {
