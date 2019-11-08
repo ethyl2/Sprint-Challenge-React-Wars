@@ -1,14 +1,34 @@
 import React from 'react';
+import {
+    Card,
+    CardImg,
+    CardText,
+    CardBody,
+    CardTitle,
+    CardSubtitle,
+    Col
+  } from "reactstrap";
 
 const CharacterCard = (props) => {
     return (
-        <div>
-            <h1>{props.name}</h1>
-            <p>Height: {props.height}</p>
-            <p>Mass: {props.mass}</p>
-            <p>Birth Year: {props.birth_year}</p>
-            <p>Gender: {props.gender}</p>
-        </div>
+            <Col xs="12" s="6" md="4">
+                <Card className="m-2">
+                
+                    <CardImg
+                        top
+                        width="100%"
+                        src="https://source.unsplash.com/user/danielkcheung"
+                        alt="Star Wars"
+                    />
+                    <CardBody>
+                        <CardTitle style={{fontWeight: "bold"}}>{props.name}</CardTitle>
+                        <CardSubtitle>Birth Year: {props.birth_year}</CardSubtitle>
+                        <CardText>Height: {props.height}</CardText>
+                        <CardText>Mass: {props.mass}</CardText>
+                        <CardText>Gender: {props.gender}</CardText>
+                    </CardBody>
+                </Card>
+            </Col>
     )
 }
 
