@@ -6,7 +6,7 @@ import {
     CardBody,
     CardTitle,
     CardSubtitle,
-    Col
+    Col,
   } from "reactstrap";
 
 const CharacterCard = (props) => {
@@ -21,7 +21,7 @@ const CharacterCard = (props) => {
                         alt="Star Wars"
                     />
                     <CardBody>
-                        <CardTitle style={{fontWeight: "bold"}}>{props.name}</CardTitle>
+                        <CardTitle style={{fontWeight: "bold"}} className="lead">{props.name}</CardTitle>
                         <CardSubtitle>Birth Year: {props.birth_year}</CardSubtitle>
                         <CardText>Height: {props.height}</CardText>
                         <CardText>Mass: {props.mass}</CardText>

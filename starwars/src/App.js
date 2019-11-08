@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
 import CharacterCard from './components/CharacterCard';
-import { Container, Row, Button } from "reactstrap";
+import { Container, Row, Button, Spinner, Jumbotron } from "reactstrap";
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. 
@@ -10,6 +10,9 @@ const App = () => {
   // the state properties here.
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState('page=1');
+
+  /* Stretch: Build a pagination system that will 
+  allow you to load the next page of data.*/
 
   function getCharacters(direction) {
     const numberPattern = /\d+/g;
@@ -41,10 +44,15 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or 
   //props it should
   // sync up with, if any.
+  if (characters === []) return <Spinner color="secondary" />;
 
   return (
+
     <div className="App">
-      <h1 className="Header">React Wars Characters</h1>
+      <Jumbotron>
+        <h1 className="Header display-3">React Wars Characters</h1>
+      </Jumbotron>
+      
       <Button onClick={() => getCharacters("previous")}>Previous Page</Button>
       <Button className="ml-4" onClick={() => getCharacters("next")}>Next Page</Button>
       
