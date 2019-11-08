@@ -26,6 +26,9 @@ const CharacterCard = (props) => {
                         <CardText>Height: {props.height}</CardText>
                         <CardText>Mass: {props.mass}</CardText>
                         <CardText>Gender: {props.gender}</CardText>
+                        <CardText>Hair: {props.hair_color}</CardText>
+                        <CardText>Skin: {props.skin_color}</CardText>
+                        <CardText>Eyes: {props.eye_color}</CardText>
                     </CardBody>
                 </Card>
             </Col>

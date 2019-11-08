@@ -44,7 +44,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="Header">React Wars</h1>
+      <h1 className="Header">React Wars Characters</h1>
       <Button onClick={() => getCharacters("previous")}>Previous Page</Button>
       <Button className="ml-4" onClick={() => getCharacters("next")}>Next Page</Button>
       
@@ -56,7 +56,10 @@ const App = () => {
                     height={character.height}
                     mass={character.mass}
                     birth_year={character.birth_year}
-                    gender={character.gender} />
+                    gender={character.gender}
+                    hair_color={character.hair_color}
+                    skin_color={character.skin_color}
+                    eye_color={character.eye_color} />
         })}
         </Row>
       </Container>
