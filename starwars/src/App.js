@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
 import CharacterCard from './components/CharacterCard';
+import Footer from './components/Footer';
 import { Container, Row, Button, Spinner, Jumbotron } from "reactstrap";
 
 const App = () => {
@@ -53,8 +54,8 @@ const App = () => {
         <h1 className="Header display-3">React Wars Characters</h1>
       </Jumbotron>
       
-      <Button onClick={() => getCharacters("previous")}>Previous Page</Button>
-      <Button className="ml-4" onClick={() => getCharacters("next")}>Next Page</Button>
+      <Button className="mb-3" onClick={() => getCharacters("previous")}>Previous Page</Button>
+      <Button className="mb-3 ml-4" onClick={() => getCharacters("next")}>Next Page</Button>
       
       <Container>
         <Row>
@@ -71,6 +72,7 @@ const App = () => {
         })}
         </Row>
       </Container>
+      <Footer/>
     </div>
   );
 }
