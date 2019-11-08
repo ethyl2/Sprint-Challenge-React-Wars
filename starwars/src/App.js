@@ -86,7 +86,7 @@ const App = () => {
       <Form onSubmit={(event) => handleSubmit(event)}>
         <FormGroup>
           <Label for="nameInput">Show only this character:</Label>
-          <Input type="text" name="nameInput" id="nameInput" placeholder="R2-D2" onChange={(event) => showCharacter(event)}/>
+          <Input style={{width: "25%", margin: "auto"}} type="text" name="nameInput" id="nameInput" placeholder="R2-D2" onChange={(event) => showCharacter(event)}/>
         </FormGroup>
         <Button>Submit</Button>
       </Form>
