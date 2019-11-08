@@ -31,6 +31,13 @@ const App = () => {
     setPage(`page=${num}`);
   }
 
+  // Setting up a function to filter results based on a property of character, such as gender
+  function filterCharacters(attribute, attributeValue) {
+    const filteredCharacters = characters.filter((character) => character[attribute] === attributeValue);
+    console.log(filteredCharacters);
+    setCharacters(filteredCharacters);
+  }
+
   useEffect(() => {
     axios.get(`https://swapi.co/api/people/?${page}`)
       .then(response => {
@@ -56,6 +63,8 @@ const App = () => {
       
       <Button className="mb-3" onClick={() => getCharacters("previous")}>Previous Page</Button>
       <Button className="mb-3 ml-4" onClick={() => getCharacters("next")}>Next Page</Button>
+      <Button className="mb-3 ml-4" onClick={() => filterCharacters("gender", "female")}>Show Females Only</Button>
+      <Button className="mb-3 ml-4" onClick={() => filterCharacters("eye_color", "blue")}>Show Blue-Eyed Only</Button>
       
       <Container>
         <Row>
