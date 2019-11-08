@@ -53,6 +53,11 @@ btn.onclick = function(event) {
 Declarative example:
 const Button = () => {
 const [color, setColor] = useState(‘red’);
+```
+
+Declarative example:
+
+```
 
 const handleChange = () => {
     setColor(currentColor => (currentColor === ‘red’? ‘blue’: ‘red’));
